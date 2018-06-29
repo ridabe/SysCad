@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateDbClientesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('db_clientes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nomecli');
+            $table->string('emailcli');
+            $table->string('cidade');
+            $table->string('bairro');
+            $table->string('estado');
+            $table->string('rua');
+            $table->string('numero');
+            $table->string('cep');
+            $table->string('telcli');
+            $table->string('cpfcli');
+            $table->text('obscli');
+            $table->integer('status1')->default(0);
+            $table->integer('status2')->default(0);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('db_clientes');
+    }
+}
