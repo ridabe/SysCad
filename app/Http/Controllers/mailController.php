@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\mailSenha;
+use App\Mail\lembrarSenha;
 
 class mailController extends Controller
 {
@@ -30,15 +30,19 @@ class mailController extends Controller
     }
 
 
-    public function mailSenha()
+    public function mailSenha($emaildoCliente,$user)
     {
 
+
+       //$textoEmail = new lembrarSenha();
+
+
     	
-    	//Mail::to($emaildoCliente)->send(new mailSenha()); //Esta e uma frma de enviar ja testado
+    	Mail::to($emaildoCliente->email)->send(new lembrarSenha($user)); //Esta e uma frma de enviar ja testado
 
 
 
-//Aqui podemos enviar informaçoes para a view
+/*Aqui podemos enviar informaçoes para a view
     	Mail::send('email.corpoEmail',[], function($message){
 
     			//$enderecos = [] //Crio esta array se qyuiser mais de um destinatario
@@ -51,7 +55,7 @@ class mailController extends Controller
 
 
     	});
-
+*/
     
     }
 }

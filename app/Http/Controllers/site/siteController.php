@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\hash;
 use App\Http\Controllers\mailController;
+use App\Http\Controllers\Diversos;
 
 use App\crud_usuario;
 use App\dbFornecedor;
@@ -77,9 +78,19 @@ if(Hash::check($request->formSenha,$usuario->senha)){
      $totalForn =dbFornecedor::count();
      $totalCli =dbClientes::count();
      $totalprod =dbprodutos::count();
+
+
+     //Verificar se existe uma senha provisoria e redirecionar para troca de senha
+if ($usuario->senha_provisoria == null) {
+    return view('interno.interno')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+     //return redirect('interno/interno');
+} else {
+   return 'Vai trocar a senha';
+}//Fim da condicao para trocar a senha
+
+
            
-   return view('interno.interno')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
-//return redirect('interno/interno');
+  
 
 
 }else{
@@ -103,7 +114,7 @@ if(Hash::check($request->formSenha,$usuario->senha)){
          //VErificar se os dados do formularios estao corretos
          $this->validate($request,[
             'formCadNome' => 'required|between:3,30|alpha_num',
-            'formCadEmail' => 'required',
+            'formCadEmail' => 'required|unique',
             'formCadSenha' => 'required|between:6,15',
             'formCadSenhaRepetir' => 'required|same:formCadSenha',// Aqui verifica se as senha sao iguais
             'contratoCheck' => 'accepted'
@@ -167,9 +178,32 @@ if(Hash::check($request->formSenha,$usuario->senha)){
 
        } else {
 
+            //GErar uma nova senha
+
+            $geraSenha = new Diversos(); //Classe Criada para ser usada como um tipo de Helper
+            $novaSenha = $geraSenha->geraSenha(9);
+
+
+            //Grava nova senha no banco
+
+           $respostaEmail->senha_provisoria = $novaSenha;
+           $respostaEmail->senha = Hash::make($novaSenha);
+           $respostaEmail->save();
+
+          
+
+         //Criar o user pra passar os dados para o email
+        $user =  ([
+        'user' => $respostaEmail->usuario,
+        'senha' => $novaSenha,
+        'email' => $respostaEmail->email
+        ]);
+
+       //////////////////////////////////////////////////
+            
            $enviaEmail = new  mailController; //Chamei a classe do email controller que tem as configuracoes das mensagens
-           $enviaEmail->setEmail($email);//Enviei o email para outra classe
-           $enviaEmail-> mailSenha(); //estanciei o metodo que contem o endereco do email outr classe
+           //$enviaEmail->setEmail($email);//Enviei o email para outra classe
+           $enviaEmail-> mailSenha($respostaEmail,$user); //estanciei o metodo que contem o endereco do email e a funcao para enviar.
 
 
 
@@ -177,21 +211,6 @@ if(Hash::check($request->formSenha,$usuario->senha)){
                 return view('login', compact('confirmacao'));
        }
        
-
-     
-
-      
-
-
-
-   
-
-      
-       
-
-       
-        
-        //return 'DEu certo';
     }
     //_______________________________
 }
