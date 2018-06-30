@@ -27,6 +27,7 @@ Route::get('/', 'site\siteController@index')->name('index');
 
 //routs para a area interna
 Route::get('interno/interno','interno\internoConttoller@abrirInterno' )->name('interno');
+Route::post('interno/trocarSenha','interno\internoConttoller@trocarSenha' )->name('trocarSenha');
 Route::get('interno/criaPdf','interno\internoConttoller@criaPdf' )->name('criaPdf');
 Route::get('/logout','site\siteController@logout' )->name('logout');
 

@@ -6,9 +6,12 @@ use Session;
 use App\dbFornecedor;
 use App\dbClientes;
 use App\dbProdutos;
-
+use App\crud_usuario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\hash;
+use App\Http\Controllers\mailController;
+use App\Http\Controllers\Diversos;
 use PDF;
 
 class internoConttoller extends Controller
@@ -48,4 +51,42 @@ class internoConttoller extends Controller
 }
 
 
+
+public function trocarSenha(request $request)
+{
+
+
+  $this->validate($request,[
+       'senha' => 'required'
+       
+    ]);
+  $email = $request->email;
+  $senha = $request->senha;
+
+  $pegaDados = new crud_usuario();
+  $dados= $pegaDados->localizaEmail($email);
+
+  $dados->senha = Hash::make($senha);
+  $dados->senha_provisoria = '';
+  $dados->save();
+
+      if(!Session::has('chave')){
+            $erros_bd = ['Voce nao tem permissão!!!'];
+            return redirect('login');
+            //return view('login', compact('erros_bd'));
+        }else{
+
+          $totalForn =dbFornecedor::count();
+               $totalCli =dbClientes::count();
+               $totalprod =dbprodutos::count();
+
+               $confirmacao = ['Senha Alterada com sucesso!!!'];
+                     
+                 
+     return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+
+
+      }
+
+    }
 }

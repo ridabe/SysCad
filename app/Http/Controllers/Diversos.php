@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Diversos
 {
+	
    function geraSenha($size){
         //String com valor possíveis do resultado, os caracteres pode ser adicionado ou retirados conforme sua necessidade
         $basic = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

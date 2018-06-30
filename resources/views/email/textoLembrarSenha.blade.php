@@ -3,10 +3,10 @@
 
 
 
-Olá {{$user['user']}},fiquei sabendo que voce esqueceu seu email né....<br>
-Nao tem problema, nos criamos este aqui pra voce {{$user['senha']}}.
+Olá {{$user['user']}}, fiquei sabendo que voce esqueceu seu email né....<br>
+Não tem problema, nós criamos este aqui pra você <b>{{$user['senha']}}</b>.
 
-Pode voltar a acessar seu paunel, mas nao esqueça de alterar ok?
+Pode voltar a acessar seu painel, mas não esqueça de alterar ok?
 
 @component('mail::button', ['url' => 'http://www.algoritmum.com.br'])
 Button Text

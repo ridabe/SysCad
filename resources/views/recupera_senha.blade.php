@@ -24,7 +24,7 @@
         <button type="submit" class="btn btn-primary">Recuperar</button>
         <ul class="nav justify-content-center">
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ route('cadastro') }}">Registrar</a>
+                  <a class="nav-link active" href="{{ route('cadastro') }}">Enviar</a>
                 </li>
 
                 <li class="nav-item">

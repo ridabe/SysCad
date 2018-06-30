@@ -85,7 +85,9 @@ if ($usuario->senha_provisoria == null) {
     return view('interno.interno')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
      //return redirect('interno/interno');
 } else {
-   return 'Vai trocar a senha';
+
+    $email = $usuario->email;
+   return view('interno.trocarSenha')->with(compact('email',$email));
 }//Fim da condicao para trocar a senha
 
 
