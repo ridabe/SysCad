@@ -23,9 +23,9 @@ class produtosController extends Controller
         
             $dadosProdutos =dbProdutos::all(); 
 
-            
+            $admin = session('admin');
 
-        return view('interno.lista_produtos',compact('dadosProdutos'));
+        return view('interno.lista_produtos')->with(compact('dadosProdutos',$dadosProdutos))->with(compact('admin',$admin));
         }
     }
 
@@ -42,8 +42,8 @@ class produtosController extends Controller
 
 
            
-
-        return view('interno.cad_produtos')->with(compact('dadosForn',$dadosForn));
+        $admin = session('admin');
+        return view('interno.cad_produtos')->with(compact('dadosForn',$dadosForn))->with(compact('admin',$admin));
       
         }
     }
@@ -85,13 +85,15 @@ class produtosController extends Controller
            $totalForn =dbFornecedor::count();
            $totalCli =dbClientes::count();
            $totalprod =dbprodutos::count();
+           $admin = session('admin');
                  
              
         return view('interno.interno')
         ->with(compact('confirmacao'))
         ->with(compact('totalCli',$totalCli))
         ->with(compact('totalForn',$totalForn))
-        ->with(compact('totalprod',$totalprod));
+        ->with(compact('totalprod',$totalprod))
+        ->with(compact('admin',$admin));
        
     }
 
@@ -134,9 +136,9 @@ class produtosController extends Controller
                     //return view('login', compact('erros_bd'));
                   }
         //Fim da Validação
-
+                  $admin = session('admin');
             
-    return view('interno.show_Produtos')->with(compact('dadosForn',$dadosForn))->with(compact('dados',$dados))->with(compact('totalForn',$totalForn))->with(compact('descStatus',$descStatus))->with(compact('valorStatus',$valorStatus));
+    return view('interno.show_Produtos')->with(compact('dadosForn',$dadosForn))->with(compact('dados',$dados))->with(compact('totalForn',$totalForn))->with(compact('descStatus',$descStatus))->with(compact('valorStatus',$valorStatus))->with(compact('admin',$admin));
     }
 
     /**
@@ -191,9 +193,10 @@ class produtosController extends Controller
            $totalCli =dbClientes::count();
            $totalprod =dbprodutos::count();
          $dadosProdutos =dbprodutos::all();
+         $admin = session('admin');
 
           $confirmacao = ['Dados Alterados com sucesso!!!'];
-        return view('interno.lista_produtos')->with (compact('confirmacao'))->with(compact('dadosProdutos'));
+        return view('interno.lista_produtos')->with (compact('confirmacao'))->with(compact('dadosProdutos'))->with(compact('admin',$admin));
     }
 
     
@@ -210,9 +213,10 @@ class produtosController extends Controller
          $pegarProdutos =dbProdutos::find($id);
          $pegarProdutos->delete();
          $dadosProdutos =dbprodutos::all();
+         $admin = session('admin');
           $confirmacao = ['Dados Deletados com sucesso!!!'];
-        return view('interno.lista_produtos')->with (compact('confirmacao'))->with(compact('dadosProdutos'));
-    }
+        return view('interno.lista_produtos')->with (compact('confirmacao'))->with(compact('dadosProdutos'))->with(compact('admin',$admin));
+      }
 
 
      public function imprimeProdutos($id)//Imprimir Produtos

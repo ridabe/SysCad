@@ -80,4 +80,16 @@
   'fontawesome' => array(
     'normal' => $fontDir . '\d941792b213297fb889cd533ff32b92e',
   ),
+  'poppins-regular' => array(
+    'normal' => $fontDir . '\57d5b88f1ef6692c088245c09b9c6f36',
+  ),
+  'poppins-medium' => array(
+    'normal' => $fontDir . '\af8422c03459816c3ac9ccc83daeb215',
+  ),
+  'poppins-bold' => array(
+    'normal' => $fontDir . '\caa4d2323c402b8eec7d1569ff9ccebe',
+  ),
+  'poppins-semibold' => array(
+    'normal' => $fontDir . '\7f0b204acedb8273356f55a4782f5193',
+  ),
 ) ?>

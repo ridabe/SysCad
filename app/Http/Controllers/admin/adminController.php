@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\interno;
+namespace App\Http\Controllers\admin;
 
 use Session;
 use App\dbFornecedor;
@@ -14,13 +14,14 @@ use App\Http\Controllers\mailController;
 use App\Http\Controllers\Diversos;
 use PDF;
 
-class internoConttoller extends Controller
+class adminController extends Controller
 {
+
+public $infoUsuarios = new crud_usuario;
+
 
 
    public function abrirInterno(){
-
-     $admin = session('admin');
     //verifica se uma seccao esta ativa
     if(!Session::has('chave')){
         $erros_bd = ['Voce nao tem permissão!!!'];
@@ -32,15 +33,8 @@ class internoConttoller extends Controller
            $totalCli =dbClientes::count();
            $totalprod =dbprodutos::count();
                  
-  if ($admin == 1) {
-
-               return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
-             } else {
-              
-              return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
-             }
-                        
- 
+             
+ return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));;
         //return view('interno.interno');
     }
 
@@ -94,7 +88,7 @@ public function trocarSenha(request $request)
                $confirmacao = ['Senha Alterada com sucesso!!!'];
                      
                  
-     return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+     return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
 
 
       }

@@ -8,13 +8,20 @@ use App\Http\Controllers\Controller;
 use App\dbFornecedor;
 use App\dbClientes;
 use App\dbProdutos;
+use App\crud_usuario;
 use Session;
 
 class fornecedorController extends Controller
 {
    
+       
+
     public function index()
     {
+
+        $admin = session('admin');
+
+
        if(!Session::has('chave')){
         $erros_bd = ['Voce nao tem permissão!!!'];
         return redirect('login');
@@ -25,20 +32,23 @@ class fornecedorController extends Controller
 
             
 
-        return view('interno.lista_fornecedor',compact('dadosFornecedor'));
+        return view('interno.lista_fornecedor')->with(compact('dadosFornecedor',$dadosFornecedor))->with(compact('admin',$admin));
         }
     }
 
    
     public function create()
     {
+
+        $admin = session('admin');
+
         if(!Session::has('chave')){
         $erros_bd = ['Voce nao tem permissão!!!'];
         return redirect('login');
         //return view('login', compact('erros_bd'));
     }else{  
 
-        return view('interno.cad_fornecedor'); 
+        return view('interno.cad_fornecedor')->with(compact('admin',$admin));
       
         }
     }
@@ -47,6 +57,7 @@ class fornecedorController extends Controller
     public function store(Request $request)
     {
          try {
+            $admin = session('admin');
 
         // Se tudo der certo...
             $cliente = new dbClientes;
@@ -82,7 +93,9 @@ class fornecedorController extends Controller
            $totalCli =dbClientes::count();
            $totalprod =dbprodutos::count();
                  
-             
+ if ($admin == 1) {
+                 return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+             }            
  return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
         
 
@@ -107,9 +120,9 @@ class fornecedorController extends Controller
         //
     }
 
-    public function fornecedorShow(Request $request)//Mostrar Um unico Cliente pelo Form
+    public function fornecedorShow(Request $request)//Mostrar Um unico fornecedor pelo Form
     {
-       
+       $admin = session('admin');
             $id_forn = $request->id;
             $dados =dbfornecedor::find($id_forn);
            
@@ -129,7 +142,7 @@ class fornecedorController extends Controller
 
           
             
-         return view('interno.show_fornecedor', compact('dados'));
+         return view('interno.show_fornecedor')->with(compact('dados',$dados))->with(compact('admin',$admin));
           
 
     }
@@ -137,6 +150,7 @@ class fornecedorController extends Controller
     
     public function edit($id)
     {
+        $admin = session('admin');
          if(!Session::has('chave')){
                     $erros_bd = ['Voce nao tem permissão!!!'];
                     return redirect('login');
@@ -147,12 +161,13 @@ class fornecedorController extends Controller
         $dadosFornecedor =dbfornecedor::find($id); 
 
 
-         return view('interno.show_fornecedor_edit', compact('dadosFornecedor'));
+         return view('interno.show_fornecedor_edit')->with(compact('dadosFornecedor',$dadosFornecedor))->with(compact('admin',$admin));
     }
 
    
     public function update(Request $request)
     {
+        $admin = session('admin');
          $cliente = new dbClientes;
              $fornecedor = new dbFornecedor;
 
@@ -195,7 +210,8 @@ class fornecedorController extends Controller
              
  return view('interno.lista_fornecedor')
  ->with(compact('confirmacao',$confirmacao))
- ->with(compact('dadosFornecedor',$dadosFornecedor));
+ ->with(compact('dadosFornecedor',$dadosFornecedor))
+ ->with(compact('admin',$admin));
 
             
 
@@ -205,6 +221,7 @@ class fornecedorController extends Controller
     
     public function destroy($id)
     {
+        $admin = session('admin');
          //Validação
 
          if(!Session::has('chave')){
@@ -217,7 +234,8 @@ class fornecedorController extends Controller
          $pegarFornecedor->delete();
          $dadosFornecedor =dbFornecedor::all();
           $confirmacao = ['Dados Apagados com sucesso!!!'];
-        return view('interno.lista_fornecedor')->with (compact('confirmacao'))->with(compact('dadosFornecedor'));
+        return view('interno.lista_fornecedor')->with (compact('confirmacao'))->with(compact('dadosFornecedor'))
+        ->with(compact('admin',$admin));
        
     }
 

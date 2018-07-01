@@ -74,15 +74,23 @@ if(Hash::check($request->formSenha,$usuario->senha)){
 
    session::put('chave','validado');
    session::put('usuario',$usuario->usuario);
+   session::put('admin',$usuario->admin);
 
      $totalForn =dbFornecedor::count();
      $totalCli =dbClientes::count();
      $totalprod =dbprodutos::count();
+     $admin = session('admin');
+
+//Verificar se o usuario e administrador
+if ($usuario->admin == 0) {
 
 
-     //Verificar se existe uma senha provisoria e redirecionar para troca de senha
+
+      //Verificar se existe uma senha provisoria e redirecionar para troca de senha
 if ($usuario->senha_provisoria == null) {
-    return view('interno.interno')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+
+
+    return view('interno.interno')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin));
      //return redirect('interno/interno');
 } else {
 
@@ -90,9 +98,23 @@ if ($usuario->senha_provisoria == null) {
    return view('interno.trocarSenha')->with(compact('email',$email));
 }//Fim da condicao para trocar a senha
 
+   
+} else {
+   
+          //Verificar se existe uma senha provisoria e redirecionar para troca de senha
+if ($usuario->senha_provisoria == null) {
 
-           
-  
+    $admin = session('admin');
+
+    return view('admin.admin')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin));
+     //return redirect('interno/interno');
+} else {
+
+    $email = $usuario->email;
+   return view('interno.trocarSenha')->with(compact('email',$email));
+}//Fim da condicao para trocar a senha
+
+}//Fim da verificaçao de administrador
 
 
 }else{
@@ -102,6 +124,8 @@ if ($usuario->senha_provisoria == null) {
 
 
 }//VErificação do login
+
+
 
 //Destruir a sessao
     public function logout()

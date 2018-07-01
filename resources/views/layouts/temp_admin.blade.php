@@ -15,7 +15,7 @@
  <script src="https://code.jquery.com/jquery-2.1.3.min.js" type="application/javascript" language="javascript"></script>
   
 
-    <title>Sistema Interno </title>
+    <title>Área Admin </title>
 
 
 
@@ -23,34 +23,14 @@
   </head>
   <body class="fixed-nav sticky-footer bg-ligth" id="page-top">
 <div class="container-fluid">
+    @include('inc.header_admin')
 
-  @if ($admin == 1)
-  @include('inc.header_admin')
-
-  @else
-  @include('inc.header_interno')
-    
-  @endif
-
-
-    
-<!--
-    <div class="row">
-
-      <div class="col col-lg-2">
-        @include('inc.lateral_interno')
-      </div>
-
-      <div class="col">
-       
-      </div>-->
        @yield('conteudo')
 
     </div>
    <div>
      @include('inc.footer_interno')
    </div>
-
 
    
 

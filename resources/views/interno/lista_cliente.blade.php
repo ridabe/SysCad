@@ -1,7 +1,5 @@
 
-@extends('layouts.temp_interno')
-
-
+	@extends('layouts.temp_interno')
 
 @section('conteudo')
 

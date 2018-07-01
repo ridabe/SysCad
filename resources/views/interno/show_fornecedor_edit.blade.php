@@ -1,5 +1,7 @@
-@extends('layouts.temp_interno')
 
+
+	@extends('layouts.temp_interno')
+	
 @section('conteudo')
 
 <div class="alert alert-secondary" role="alert">

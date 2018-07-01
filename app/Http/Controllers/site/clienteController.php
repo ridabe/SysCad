@@ -20,10 +20,12 @@ class clienteController extends Controller
         return redirect('login');
        
     }else{
+
+      $admin = session('admin');
         
             $dadosCliente =dbClientes::all(); 
 
-        return view('interno.lista_cliente',compact('dadosCliente'));
+        return view('interno.lista_cliente')->with(compact('dadosCliente',$dadosCliente))->with(compact('admin',$admin));
         }
     }
 
@@ -36,7 +38,8 @@ class clienteController extends Controller
         return redirect('login');
         //return view('login', compact('erros_bd'));
     }else{  
-       return view('interno.cad_cliente'); 
+      $admin = session('admin');
+       return view('interno.cad_cliente')->with(compact('admin',$admin));; 
       
         }
     }
@@ -73,6 +76,8 @@ class clienteController extends Controller
           }
 //Fim da Validação
 
+          $admin = session('admin');
+
         $confirmacao = ['Dados Gravados com sucesso!!!'];
 
           $totalForn =dbFornecedor::count();
@@ -80,7 +85,7 @@ class clienteController extends Controller
            $totalprod =dbprodutos::count();
                  
              
- return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+ return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin));
 
        
 
@@ -117,8 +122,8 @@ class clienteController extends Controller
             //return view('login', compact('erros_bd'));
           }
 //Fim da Validação
-            
-         return view('interno.show_cliente', compact('dados'));
+            $admin = session('admin');
+         return view('interno.show_cliente')->with(compact('dados',$dados))->with(compact('admin',$admin));
           
 
     }
@@ -135,9 +140,11 @@ class clienteController extends Controller
                       }
             //Fim da Validação
 
+                      $admin = session('admin');
+
         $dadosCliente =dbClientes::find($id); 
 
-         return view('interno.show_cliente_edit', compact('dadosCliente'));
+         return view('interno.show_cliente_edit')->with(compact('dadosCliente',$dadosCliente))->with(compact('admin',$admin));
 
     }
 
@@ -180,9 +187,9 @@ class clienteController extends Controller
            $totalCli =dbClientes::count();
            $totalprod =dbProdutos::count();
            $dadosCliente =dbClientes::all(); 
-                 
+             $admin = session('admin');    
              
- return view('interno.lista_cliente')->with(compact('confirmacao'))->with(compact('dadosCliente',$dadosCliente));
+ return view('interno.lista_cliente')->with(compact('confirmacao'))->with(compact('dadosCliente',$dadosCliente))->with(compact('admin',$admin));
 
 
             
@@ -206,8 +213,12 @@ class clienteController extends Controller
          $pegarCliente =dbClientes::find($id);
          $pegarCliente->delete();
          $dadosCliente =dbClientes::all();
+
+         $admin = session('admin');
+
           $confirmacao = ['Dados Apagados com sucesso!!!'];
-        return view('interno.lista_cliente')->with (compact('confirmacao'))->with(compact('dadosCliente'));
+          
+        return view('interno.lista_cliente')->with (compact('confirmacao'))->with(compact('dadosCliente'))->with(compact('admin',$admin));
        
     }
 

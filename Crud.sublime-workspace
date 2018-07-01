@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"res",
+				"respostaEmail"
+			],
+			[
+				"on",
+				"onblur\tAttr"
+			],
+			[
 				"if",
 				"ifelse\tif … else …"
 			],
@@ -19,45 +27,36 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 4247,
+				"buffer_size": 4706,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/interno/produtosController.php",
+			"file": "resources/views/interno/show_fornecedor.blade.php",
 			"settings":
 			{
-				"buffer_size": 5382,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/interno/cad_produtos.blade.php",
-			"settings":
-			{
-				"buffer_size": 3536,
+				"buffer_size": 3556,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/interno/show_produtos.blade.php",
+			"file": "resources/views/interno/lista_fornecedor.blade.php",
 			"settings":
 			{
-				"buffer_size": 4839,
+				"buffer_size": 3650,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/interno/fornecedorController.php",
+			"file": "resources/views/layouts/temp_admin.blade.php",
 			"settings":
 			{
-				"buffer_size": 6720,
+				"buffer_size": 3026,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -102,45 +101,72 @@
 		"/C/xampp/htdocs/crud/app",
 		"/C/xampp/htdocs/crud/app/Http",
 		"/C/xampp/htdocs/crud/app/Http/Controllers",
-		"/C/xampp/htdocs/crud/app/Http/Controllers/interno",
 		"/C/xampp/htdocs/crud/app/Http/Controllers/site",
+		"/C/xampp/htdocs/crud/config",
 		"/C/xampp/htdocs/crud/resources",
 		"/C/xampp/htdocs/crud/resources/views",
-		"/C/xampp/htdocs/crud/resources/views/inc",
+		"/C/xampp/htdocs/crud/resources/views/admin",
 		"/C/xampp/htdocs/crud/resources/views/interno",
 		"/C/xampp/htdocs/crud/resources/views/layouts"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/crud/app/dbProdutos.php",
-		"/C/xampp/htdocs/crud/resources/views/layouts/temp_interno.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/show_produtos.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/show_fornecedor_edit.blade.php",
 		"/C/xampp/htdocs/crud/resources/views/interno/lista_produtos.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/show_cliente.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/show_cliente_edit.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/cad_fornecedor.blade.php",
 		"/C/xampp/htdocs/crud/resources/views/interno/cad_produtos.blade.php",
-		"/C/xampp/htdocs/crud/resources/views/inc/header_interno.blade.php",
-		"/C/xampp/htdocs/crud/resources/views/interno/interno.blade.php",
-		"/C/xampp/htdocs/crud/app/Http/Controllers/site/siteController.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/lista_cliente.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/cad_cliente.blade.php",
 		"/C/xampp/htdocs/crud/app/Http/Controllers/interno/fornecedorController.php",
 		"/C/xampp/htdocs/crud/app/Http/Controllers/interno/internoConttoller.php",
-		"/C/xampp/htdocs/crud/app/Http/Controllers/site/clienteController.php",
-		"/C/xampp/htdocs/crud/resources/views/interno/show_fornecedor.blade.php",
 		"/C/xampp/htdocs/crud/resources/views/interno/lista_fornecedor.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/layouts/temp_interno.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/layouts/temp_admin.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/show_fornecedor.blade.php",
+		"/C/xampp/htdocs/crud/app/Http/Controllers/site/siteController.php",
+		"/C/xampp/htdocs/crud/app/Http/Controllers/admin/adminController.php",
+		"/C/xampp/htdocs/crud/resources/views/inc/header_admin.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/admin.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/trocarSenha.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/recupera_senha.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/email/textoLembrarSenha.blade.php",
+		"/C/xampp/htdocs/crud/app/Mail/lembrarSenha.php",
+		"/C/xampp/htdocs/crud/app/Http/Controllers/mailController.php",
+		"/C/xampp/htdocs/crud/app/Http/Controllers/Diversos.php",
+		"/C/xampp/htdocs/crud/.env",
+		"/C/xampp/htdocs/crud/resources/views/vendor/mail/html/message.blade.php",
+		"/C/xampp/htdocs/crud/app/Mail/mailSenha.php",
+		"/C/xampp/htdocs/crud/config/mail.php",
+		"/C/xampp/htdocs/crud/resources/views/email/corpoEmail.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/index_mail.blade.php",
+		"/C/xampp/htdocs/crud/app/crud_usuario.php",
+		"/C/xampp/htdocs/crud/app/dbClientes.php",
+		"/C/xampp/htdocs/crud/resources/views/login.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/welcome.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/layouts/app.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/inc/header.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/layouts/temp_home.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/inc/home_header.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/imprime_produtos.blade.php",
+		"/C/xampp/htdocs/crud/app/Http/Controllers/site/clienteController.php",
+		"/C/xampp/htdocs/crud/app/Http/Controllers/interno/produtosController.php",
+		"/C/xampp/htdocs/crud/app/dbProdutos.php",
+		"/C/xampp/htdocs/crud/resources/views/inc/header_interno.blade.php",
+		"/C/xampp/htdocs/crud/resources/views/interno/interno.blade.php",
 		"/C/xampp/htdocs/crud/database/seeds/DatabaseSeeder.php",
 		"/C/xampp/htdocs/crud/database/migrations/2018_06_26_193154_create_db_produtos_table.php",
 		"/C/xampp/htdocs/crud/database/seeds/produtoTableSeeder.php",
-		"/C/xampp/htdocs/crud/resources/views/interno/show_fornecedor_edit.blade.php",
 		"/C/xampp/htdocs/crud/resources/views/interno/imprime_fornecedor.blade.php",
-		"/C/xampp/htdocs/crud/resources/views/interno/cad_fornecedor.blade.php",
 		"/C/xampp/htdocs/crud/app/dbFornecedor.php",
 		"/C/xampp/htdocs/crud/database/migrations/2018_06_26_131035_create_db_fornecedors_table.php",
-		"/C/xampp/htdocs/crud/resources/views/interno/cad_cliente.blade.php",
 		"/C/xampp/htdocs/crud/composer.json",
 		"/C/xampp/htdocs/crud/config/app.php",
 		"/C/xampp/htdocs/crud/resources/views/interno/imprime_cliente.blade.php",
-		"/C/xampp/htdocs/crud/resources/views/interno/show_cliente.blade.php",
-		"/C/xampp/htdocs/crud/resources/views/interno/lista_cliente.blade.php",
 		"/C/xampp/htdocs/crud/resources/views/layouts/temp_imprime_interno.blade.php",
 		"/C/xampp/htdocs/crud/resources/views/inc/footer_interno.blade.php",
-		"/C/xampp/htdocs/crud/resources/views/interno/show_cliente_edit.blade.php",
 		"/C/xampp/htdocs/crud/resources/views/inc/lateral_interno.blade.php",
 		"/C/xampp/htdocs/crud/public/css/menu.css",
 		"/C/xampp/htdocs/crud/app/Http/Controllers/interno/clienteController.php",
@@ -155,7 +181,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -170,6 +196,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mostrar",
 			"formbuilder",
 			"forms"
 		],
@@ -195,7 +222,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -204,15 +231,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4247,
+						"buffer_size": 4706,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4247,
-								4247
+								1282,
+								1282
 							]
 						],
 						"settings":
@@ -220,7 +247,7 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1008.0,
+						"translation.y": 190.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -228,120 +255,88 @@
 				},
 				{
 					"buffer": 1,
-					"file": "app/Http/Controllers/interno/produtosController.php",
+					"file": "resources/views/interno/show_fornecedor.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5382,
+						"buffer_size": 3556,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1157,
-								1157
+								50,
+								50
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 756.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/interno/cad_produtos.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3536,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1753,
-								1753
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 846.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "resources/views/interno/show_produtos.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4839,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3682,
-								3682
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1944.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/Http/Controllers/interno/fornecedorController.php",
+					"buffer": 2,
+					"file": "resources/views/interno/lista_fornecedor.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6720,
+						"buffer_size": 3650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								981,
-								2578
+								1,
+								1
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/views/layouts/temp_admin.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3026,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1137,
+								1137
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1242.0,
+						"translation.y": 228.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -349,7 +344,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -386,7 +381,7 @@
 	"project": "",
 	"replace":
 	{
-		"height": 50.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -424,7 +419,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 245.0,
+	"side_bar_width": 265.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
