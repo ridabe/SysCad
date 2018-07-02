@@ -26,8 +26,8 @@ class produtoTableSeeder extends Seeder
         			'nomeprod'=>$faker->word(),
         			'descricao'=>$faker->sentence(),
         			'codforn'=>$faker->ean8(),
-        			'precocusto'=>$faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
-        			'precovenda'=>$faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
+        			//'precocusto'=>$faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
+        			//'precovenda'=>$faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
         			'sessao'=>$faker->randomDigitNotNull(),
         			'quantidade'=>$faker->randomDigitNotNull(),
         			'status1'=>$faker->randomDigitNotNull()

@@ -140,7 +140,7 @@ if ($usuario->senha_provisoria == null) {
          //VErificar se os dados do formularios estao corretos
          $this->validate($request,[
             'formCadNome' => 'required|between:3,30|alpha_num',
-            'formCadEmail' => 'required|unique',
+            'formCadEmail' => 'required',
             'formCadSenha' => 'required|between:6,15',
             'formCadSenhaRepetir' => 'required|same:formCadSenha',// Aqui verifica se as senha sao iguais
             'contratoCheck' => 'accepted'

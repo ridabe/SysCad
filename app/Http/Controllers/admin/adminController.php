@@ -17,7 +17,7 @@ use PDF;
 class adminController extends Controller
 {
 
-public $infoUsuarios = new crud_usuario;
+//public $infoUsuarios = new crud_usuario;
 
 
 

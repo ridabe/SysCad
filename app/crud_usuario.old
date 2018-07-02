@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class crud_usuario extends Model
 {
     protected $primaryKey = 'id_usuario';
-   
+    protected $database = "ridabe";
+
 
      public function localizaEmail($email) //Localizar se existe o email cadastrado
    {
