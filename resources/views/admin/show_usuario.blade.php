@@ -7,22 +7,26 @@
 
 	
 	<div class="shadow p-3 mb-5 bg-black rounded">
-<h3>Clientes</h3>
+<h3>Usuários</h3>
 		<div class="row justify-content-md-center">
+			<div class="form-group form-check">	
+			    
+			    <div class="col-sm-auto">
+			     	<div class="alert alert-warning" role="alert">
+				    	<div class="form-group form-check">
+						    <input type="checkbox" class="form-check-input" id="desativar" >
+						    <label class="form-check-label " for="exampleCheck1" >Atualizar</label>
+						</div>
+					</div>
+
+			    </div>
+			</div>
+
 		    <div class="col col-md-auto">
-		      <h5>Área de controle:</h5>
-		    </div>
 
-		    <div class="col-md-auto">
-		     
-		    	<div class="form-group form-check">
-				    <input type="checkbox" class="form-check-input" id="desativar" >
-				    <label class="form-check-label " for="exampleCheck1" >Atualizar</label>
-				  </div>
-
-		    </div>
-
-		    <div class="col col-md-auto">
+		    	<div class="alert alert-warning" role="alert">
+		    	<b>Usuario Administrador</b>
+		    	</div>
 		       
 		    </div>
 
@@ -112,7 +116,7 @@
     
 
         <script type="text/javascript">
-
+//Ativar ou desativar os dados do formulario
 		 $(document).ready(function(e) { 
 		   $("#desativar").click(function(e) {  
 		      if($(this).is(':checked')) //Retornar true ou false      
@@ -121,6 +125,7 @@
 		        $('.form-control').prop('readonly', true);
           });
 		});
+//Ativar ou desativar o botao de atualizar
 
 		 $(document).ready(function(e) { 
 		   $("#desativar").click(function(e) {  
@@ -133,78 +138,7 @@
 
 </script>
        
-<script type="text/javascript" >
-    
-    function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('ruaCliente').value=("");
-            document.getElementById('bairroCliente').value=("");
-            document.getElementById('cidadeCliente').value=("");
-            document.getElementById('ufCliente').value=("");
-            
-    }
 
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('ruaCliente').value=(conteudo.logradouro);
-            document.getElementById('bairroCliente').value=(conteudo.bairro);
-            document.getElementById('cidadeCliente').cidadevalue=(conteudo.localidade);
-            document.getElementById('ufCliente').value=(conteudo.uf);
-            
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
-        }
-    }
-        
-    function pesquisacep(valor) {
-
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
-
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
-            if(validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('ruaCliente').value="...";
-                document.getElementById('bairroCliente').value="...";
-                document.getElementById('cidadeCliente').value="...";
-                document.getElementById('ufCliente').value="...";
-               
-
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
-
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
-            } //end if.
-            else {
-                //cep é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
-            }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
-        }
-    };
-//Mask de telefone
-
-    </script>
 
 
 @endsection
