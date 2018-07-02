@@ -39,7 +39,7 @@ class siteController extends Controller
 //Area de cadastro de conta
     public function cadastro()
     {
-        return view('cadastro');
+        return view('admin.cad_usuario');
     }
 
 

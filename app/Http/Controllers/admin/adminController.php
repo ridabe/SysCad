@@ -17,7 +17,21 @@ use PDF;
 class adminController extends Controller
 {
 
-//public $infoUsuarios = new crud_usuario;
+ public function index()
+    {
+        if(!Session::has('chave')){
+        $erros_bd = ['Voce nao tem permissão!!!'];
+        return redirect('login');
+       
+    }else{
+
+      $admin = session('admin');
+        
+            $dadosUsuario =crud_usuario::all(); 
+
+        return view('admin.lista_usuario')->with(compact('dadosUsuario',$dadosUsuario))->with(compact('admin',$admin));
+        }
+    }
 
 
 
@@ -40,6 +54,26 @@ class adminController extends Controller
 
 
    }
+
+    public function show($id_usuario)//Mostra um form com as informações para editar
+    {
+            //Validação
+
+                     if(!Session::has('chave')){
+                    $erros_bd = ['Voce nao tem permissão!!!'];
+                    return redirect('login');
+                    //return view('login', compact('erros_bd'));
+                      }
+            //Fim da Validação
+
+                      $admin = session('admin');
+
+        $dadosUsuario =crud_usuario::find($id_usuario); 
+
+
+        return view('admin.show_usuario')->with(compact('dadosUsuario',$dadosUsuario))->with(compact('admin',$admin));
+
+    }
 
 
    //Criar PDF //Não esta sendo usado

@@ -47,7 +47,7 @@
          Administrador
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Administrar User</a>
+          <a class="dropdown-item" href="{{route('usuarioListar')}}">Administrar User</a>
           <a class="dropdown-item" href="#">Enviar Mensagens</a>
          
         </div>

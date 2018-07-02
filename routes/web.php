@@ -62,4 +62,8 @@ route::post('interno/produtos_update','interno\produtosController@update')->name
 route::get('interno/delete_produtos/{id}','interno\produtosController@destroy')->name('delete_produtos');//Deletar um regeistro
 route::get('interno/imprime_Produtos/{id}','interno\produtosController@imprimeProdutos')->name('imprime_Produtos');//deleta um registro
 
+//Rotas da sessao Admin
+route::get('admin/usuarioListar','admin\adminController@index')->name('usuarioListar');//Listar 
+route::get('admin/usuarioShow/{id}','admin\adminController@show')->name('usuarioShow');//Select em Um unico Cliente e exibe
+
 

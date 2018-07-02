@@ -93,10 +93,8 @@ class fornecedorController extends Controller
            $totalCli =dbClientes::count();
            $totalprod =dbprodutos::count();
                  
- if ($admin == 1) {
-                 return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
-             }            
- return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+      
+ return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin));
         
 
     } catch (Exception $e) {
