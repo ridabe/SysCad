@@ -24,6 +24,13 @@
           <div class="alert alert-danger" role="alert">
   			@include('inc.erros')
 		</div> 
+
+		<div class="content">
+			 <div class="col col-md-auto">
+		      <a class="btn btn-primary" href="{{route('cadastroUsuario')}}"  role="button">Add Usuário</a>
+		    </div>
+		</div>
+
       </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -58,14 +65,14 @@
 				      		<a href="{{route('usuarioShow',$dados->id_usuario)}}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Editar</a>
 					    </td>
 				      	<td >
-				      		<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirm">Apagar</button>
+				      		<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirm{{$dados->id_usuario}}">Apagar</button>
 
 
 
 					    </td>
 				    </tr>
 
-				    	<div class="modal fade" id="confirm" role="dialog">
+				    	<div class="modal fade" id="confirm{{$dados->id_usuario}}" role="dialog">
 							  <div class="modal-dialog modal-md">
 
 							    <div class="modal-content">
@@ -74,7 +81,7 @@
 							            <p> {{$dados->usuario}}</p>
 							      </div>
 							      <div class="modal-footer">
-							        <a href="#" type="button" class="btn btn-danger" id="delete">Apagar Registo</a>
+							        <a href="{{route('delete_usuario',$dados->id_usuario)}}" type="button" class="btn btn-danger" id="delete">Apagar Registo</a>
 							            <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
 							      </div>
 							    </div>

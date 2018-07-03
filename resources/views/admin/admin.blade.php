@@ -85,14 +85,46 @@
        <!-- Mensagens--> 
     <div class="row">
 
-      	<div class="col col-lg-6">
+      	 @if($admin == 1)
+     <div class="col col-lg-6">
 
-	       <div class="alert alert-info" role="alert">
-		        <h5>Relatórios do Sistema</h5>
-		        <hr>
-			</div>
-      	</div>
+            
+                      <h5>Usuários On Line</h5>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nome</th>
+                      <th>Email</th>
+               
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                       <th>ID</th>
+                      <th>Nome</th>
+                      <th>Email</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    @foreach($onLine as $line)
+                <tr>
+                  <th scope="row">{{$line->id_usuario}}</th>
+                  <td>{{$line->usuario}}</td>
+                  <td>{{$line->email}}</td>
 
+                </tr>
+               
+
+             @endforeach
+                    
+                  </tbody>
+                </table>
+              </div>
+             
+          </div>
+        @endif  
       	<div class="col col-lg-6">
       		<div class="alert alert-info" role="alert">
 		        <h5>Mensagens do Adm</h5>

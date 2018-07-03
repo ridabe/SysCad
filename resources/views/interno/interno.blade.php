@@ -84,14 +84,16 @@
 
        <!-- Mensagens--> 
     <div class="row">
+       @if($admin == 1)
+        	<div class="col col-lg-6">
 
-      	<div class="col col-lg-6">
+      	       <div class="alert alert-info" role="alert">
+      		        <h5>Usuários On Line</h5>
+      		        <hr>
+      			   </div>
+        	</div>
+        @endif  
 
-	       <div class="alert alert-info" role="alert">
-		        <h5>Relatórios do Sistema</h5>
-		        <hr>
-			</div>
-      	</div>
 
       	<div class="col col-lg-6">
       		<div class="alert alert-info" role="alert">

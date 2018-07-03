@@ -13,8 +13,7 @@ use Session;
 
 class fornecedorController extends Controller
 {
-   
-       
+      
 
     public function index()
     {
@@ -57,6 +56,15 @@ class fornecedorController extends Controller
     public function store(Request $request)
     {
          try {
+
+
+            //pagar dados de usuarios on line
+
+       $pegarOnLine = new crud_usuario;
+       $onLine = $pegarOnLine->localizaOnLine();
+       $contagem = count( $onLine);
+
+      //////////////////////////////
             $admin = session('admin');
 
         // Se tudo der certo...
@@ -94,7 +102,7 @@ class fornecedorController extends Controller
            $totalprod =dbprodutos::count();
                  
       
- return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin));
+ return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin))->with(compact('onLine',$onLine));
         
 
     } catch (Exception $e) {

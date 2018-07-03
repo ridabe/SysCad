@@ -79,7 +79,7 @@
         <a class="nav-link" href="#">Manual</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('index')}}">Logout</a>
+        <a class="nav-link" href="{{ route('logout',session('id'))}}">Logout</a>
       </li>
     </ul>
   </div>

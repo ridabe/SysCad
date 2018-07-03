@@ -22,6 +22,9 @@
 			    </div>
 			</div>
 
+
+			@if($dadosUsuario->admin == 1)
+
 		    <div class="col col-md-auto">
 
 		    	<div class="alert alert-warning" role="alert">
@@ -30,13 +33,15 @@
 		       
 		    </div>
 
+		    @endif
+
 		</div>
 
 
 	</div>
 	
         
-        <form method="POST" action="#">
+        <form method="POST" action="{{route('usuario_update')}}">
 {{ csrf_field() }}
 
 
@@ -44,27 +49,43 @@
 <div class="row">
 			<div class="form-group col-9">
 			    <label for="nomeCliente"><b>Nome</b></label>
-			    <input type="text" class="form-control" id="nomeCliente" aria-describedby="nomeCliente" placeholder="Nome" name="nome" value="{{$dadosUsuario->usuario}}" readonly="true">
+			    <input type="text" class="form-control" id="nomeUsuario" aria-describedby="nomeUsuario" placeholder="Nome" name="nome" value="{{$dadosUsuario->usuario}}" readonly="true">
 			    
 			</div>
 
 			<div class="form-group col-3">
 			    <label for="cpfCliente"><b>Email</b></label>
-			    <input type="text" class="form-control" id="cpfCliente" aria-describedby="cpfCliente"  name="cpfCliente" value="{{$dadosUsuario->email}}" readonly="true">
+			    <input type="text" class="form-control" id="email" aria-describedby="cpfCliente"  name="email" value="{{$dadosUsuario->email}}" readonly="true">
 			   
 			</div>
 			
 </div>	
 
+<div class="row justify-content-md-center">
+
+	@if($dadosUsuario->admin == 1)
+		<div class="form-group col-1">
+               <input type="checkbox" class="form-control" id="adminCheck" name="adminCheck" readonly="true" checked="checked" value="1">
+                
+        </div>
+    @else
+    <div class="form-group col-1">
+               <input type="checkbox" class="form-control" id="adminCheck" name="adminCheck" readonly="true" value="1">
+                
+        </div>
+
+
+    @endif    
+        <div class="form-group form-check col-2">
+              <p>Tornar Administrador</p> 
+                
+        </div>
+
+</div>
 
 		<hr class="my-4">
 
 
-
-<div class="row">
-	
-
-</div>		  
 
 				<!-- Passar o id de forma hidden-->
 				<input type="hidden" name="id" value="">
@@ -81,7 +102,7 @@
 		    </div>
 
 		    <div class="col-md-auto">
-		      <a class="btn btn-warning" href="#" target="_blank"  role="button">Imprimir</a>
+		      <a class="btn btn-warning" href="{{route('imprime_usuario',$dadosUsuario->id_usuario)}}" target="_blank"  role="button">Imprimir</a>
 		    </div>
 
 		    <div class="col col-md-auto">
@@ -91,7 +112,7 @@
 		</div>
 	
   <!-- Enviar um campo hidden-->
-  <input type="hidden" id="id" name="id" value="{{$dadosUsuario->id_usuario}}"  >
+  <input type="hidden" id="id" name="id_usuario" value="{{$dadosUsuario->id_usuario}}"  >
 </form>
 
 					<div class="modal fade" id="confirm{{$dadosUsuario->id_usuario}}" role="dialog">
@@ -103,7 +124,7 @@
 							            <p>{{$dadosUsuario->usuario}} </p>
 							      </div>
 							      <div class="modal-footer">
-							        <a href="#" type="button" class="btn btn-danger" id="delete">Apagar Registo</a>
+							        <a href="{{route('delete_usuario',$dadosUsuario->id_usuario)}}" type="button" class="btn btn-danger" id="delete">Apagar Registo</a>
 							            <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
 							      </div>
 							    </div>

@@ -17,4 +17,16 @@ class crud_usuario extends Model
 
    		return 	$pegaEmail;
    } 
+
+
+
+    public function localizaOnLine() //Localizar se existe o email cadastrado
+   {
+   		
+
+   		$pegaOnLine = crud_usuario::where('online', '=', 1)->get();
+
+   		return 	$pegaOnLine;
+   } 
+
 }

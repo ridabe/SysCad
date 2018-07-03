@@ -26,7 +26,7 @@
           <button class="btn btn-primary btn-block"">Login</button>
         </form>
         <div class="text-center">
-          <a class="d-block small mt-3" href="{{route('cadastro')}}">Criar uma conta</a>
+          <!--a class="d-block small mt-3" href="{{route('cadastro')}}">Criar uma conta</a-->
           <a class="d-block small" href="{{route('form_lembrar_senha')}}">Lembrar Senha</a>
         </div>
       </div>

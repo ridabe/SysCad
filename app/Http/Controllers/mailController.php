@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\lembrarSenha;
+use App\Mail\novoUsuario;
 
 class mailController extends Controller
 {
@@ -56,6 +57,16 @@ class mailController extends Controller
 
     	});
 */
+    
+    }
+
+     public function mailNovoUsuario($user)
+    {
+
+       
+        Mail::to($user['email'])->send(new novoUsuario($user)); //Esta e uma frma de enviar ja testado
+
+
     
     }
 }

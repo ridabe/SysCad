@@ -20,6 +20,15 @@ class internoConttoller extends Controller
 
    public function abrirInterno(){
 
+    //pagar dados de usuarios on line
+
+       $pegarOnLine = new crud_usuario;
+       $onLine = $pegarOnLine->localizaOnLine();
+       $contagem = count( $onLine);
+
+      //////////////////////////////
+
+
      $admin = session('admin');
     //verifica se uma seccao esta ativa
     if(!Session::has('chave')){
@@ -34,10 +43,10 @@ class internoConttoller extends Controller
                  
   if ($admin == 1) {
 
-               return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+               return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('onLine',$onLine));
              } else {
               
-              return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+              return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('onLine',$onLine));
              }
                         
  
@@ -66,6 +75,13 @@ class internoConttoller extends Controller
 public function trocarSenha(request $request)
 {
 
+  //pagar dados de usuarios on line
+
+       $pegarOnLine = new crud_usuario;
+       $onLine = $pegarOnLine->localizaOnLine();
+       $contagem = count( $onLine);
+
+      //////////////////////////////
 
   $this->validate($request,[
        'senha' => 'required'
@@ -91,10 +107,12 @@ public function trocarSenha(request $request)
                $totalCli =dbClientes::count();
                $totalprod =dbprodutos::count();
 
+               $admin = session('admin');
+
                $confirmacao = ['Senha Alterada com sucesso!!!'];
                      
                  
-     return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod));
+     return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin))->with(compact('onLine',$onLine));
 
 
       }

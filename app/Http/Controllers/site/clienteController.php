@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\hash;
 use App\dbClientes;
 use App\dbFornecedor;
 use App\dbProdutos;
+use App\crud_usuario;
 use Session;
 
 class clienteController extends Controller
 {
-   
+
+     
     public function index()
     {
         if(!Session::has('chave')){
@@ -52,6 +54,14 @@ class clienteController extends Controller
 
         // Se tudo der certo...
 
+          //pagar dados de usuarios on line
+
+       $pegarOnLine = new crud_usuario;
+       $onLine = $pegarOnLine->localizaOnLine();
+       $contagem = count( $onLine);
+
+      //////////////////////////////
+
              $cliente = new dbClientes;
 
         $cliente->nomecli = $request->nome;
@@ -85,7 +95,7 @@ class clienteController extends Controller
            $totalprod =dbprodutos::count();
                  
              
- return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin));
+ return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin))->with(compact('onLine',$onLine));
 
        
 

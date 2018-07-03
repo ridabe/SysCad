@@ -17,7 +17,6 @@ Route::get('/form_lembrar_senha', 'site\siteController@recupera_senha')->name('f
 
 //Rota que envia para a validacao
 Route::post('/executarlogin', 'site\siteController@executarLogin')->name('executarlogin');
-Route::post('/executaCriarConta', 'site\siteController@executaCriarConta')->name('executaCriarConta');
 Route::post('/executaRecuperarSenha', 'site\siteController@executaRecuperarSenha')->name('executaRecuperarSenha');
 
 //Rota que se comunica com o model
@@ -29,7 +28,7 @@ Route::get('/', 'site\siteController@index')->name('index');
 Route::get('interno/interno','interno\internoConttoller@abrirInterno' )->name('interno');
 Route::post('interno/trocarSenha','interno\internoConttoller@trocarSenha' )->name('trocarSenha');
 Route::get('interno/criaPdf','interno\internoConttoller@criaPdf' )->name('criaPdf');
-Route::get('/logout','site\siteController@logout' )->name('logout');
+Route::get('/logout/{id}','site\siteController@logout' )->name('logout');
 
 //Rotas da sessao Clientes
 //route::resource('site/cliente','site\clienteController');
@@ -65,5 +64,9 @@ route::get('interno/imprime_Produtos/{id}','interno\produtosController@imprimePr
 //Rotas da sessao Admin
 route::get('admin/usuarioListar','admin\adminController@index')->name('usuarioListar');//Listar 
 route::get('admin/usuarioShow/{id}','admin\adminController@show')->name('usuarioShow');//Select em Um unico Cliente e exibe
-
+route::get('admin/imprime_usuario/{id}','admin\adminController@imprimeUsuario')->name('imprime_usuario');//Select em Um unico Cliente e exibe
+route::get('admin/delete_usuario/{id}','admin\adminController@destroy')->name('delete_usuario');//Deletar um regeistro
+route::post('admin/usuario_update','admin\adminController@update')->name('usuario_update');//Atualiza um registro
+Route::get('admin/cadastroUsuario', 'admin\adminController@cadastroUsuario')->name('cadastroUsuario');
+Route::post('admin/executaCriarConta', 'admin\adminController@executaCriarConta')->name('executaCriarConta');
 

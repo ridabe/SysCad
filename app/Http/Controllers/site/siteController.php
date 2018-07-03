@@ -17,6 +17,8 @@ use Session;
 class siteController extends Controller
 {
     //Controlar as rotas do site
+
+   
     public function index()
     {
         return view('welcome');
@@ -39,13 +41,32 @@ class siteController extends Controller
 //Area de cadastro de conta
     public function cadastro()
     {
-        return view('admin.cad_usuario');
+        $admin = session('admin');
+        
+        return view('admin.cad_usuario')->with(compact('admin',$admin));
     }
 
 
 //area de verificação de dados
 
-public function executarLogin(Request $request){
+public function executarLogin(Request $request)
+{
+
+  //pagar dados de usuarios on line
+
+       $pegarOnLine = new crud_usuario;
+       $onLine = $pegarOnLine->localizaOnLine();
+       $contagem = count( $onLine);
+
+      //////////////////////////////
+
+  //pagar dados de usuarios on line
+
+       $pegarOnLine = new crud_usuario;
+       $onLine = $pegarOnLine->localizaOnLine();
+       $contagem = count( $onLine);
+
+      //////////////////////////////
 
 
    // $formSenha = $request->input('formSenha');
@@ -72,14 +93,22 @@ return view('login', compact('erros_bd'));
 if(Hash::check($request->formSenha,$usuario->senha)){
     //Criar uma sessão para poder logar na pagina restrito
 
+
+    //dizer que o usuario esta online
+    $usuario->online = 1;
+    $usuario->save();
+
    session::put('chave','validado');
    session::put('usuario',$usuario->usuario);
    session::put('admin',$usuario->admin);
+   session::put('id',$usuario->id_usuario);
 
      $totalForn =dbFornecedor::count();
      $totalCli =dbClientes::count();
      $totalprod =dbprodutos::count();
      $admin = session('admin');
+
+              
 
 //Verificar se o usuario e administrador
 if ($usuario->admin == 0) {
@@ -90,7 +119,7 @@ if ($usuario->admin == 0) {
 if ($usuario->senha_provisoria == null) {
 
 
-    return view('interno.interno')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin));
+    return view('interno.interno')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin))->with(compact('onLine',$onLine));
      //return redirect('interno/interno');
 } else {
 
@@ -106,7 +135,7 @@ if ($usuario->senha_provisoria == null) {
 
     $admin = session('admin');
 
-    return view('admin.admin')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin));
+    return view('admin.admin')->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('admin',$admin))->with(compact('onLine',$onLine));
      //return redirect('interno/interno');
 } else {
 
@@ -128,11 +157,17 @@ if ($usuario->senha_provisoria == null) {
 
 
 //Destruir a sessao
-    public function logout()
+    public function logout($id_usuario)
     {
+
+             $dadosUsuario =crud_usuario::find($id_usuario);
+
+              $dadosUsuario->online = 0; //grava o usuario como of line
+              $dadosUsuario->save();
+
         session::flush();
         //$confirmacao = ['Obrigado por usar nosso sistema!!'];
-        return redirect('login');
+        return redirect()->route('index');
     }
 
 

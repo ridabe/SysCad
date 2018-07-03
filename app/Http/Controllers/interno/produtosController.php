@@ -8,10 +8,12 @@ use App\Http\Controllers\Controller;
 use App\dbFornecedor;
 use App\dbClientes;
 use App\dbProdutos;
+use App\crud_usuario;
 use Session;
 
 class produtosController extends Controller
 {
+
     
     public function index()
     {
@@ -51,7 +53,13 @@ class produtosController extends Controller
     
     public function store(Request $request)//insere os dados vendo do formulario no BD
     {
-        
+        //pagar dados de usuarios on line
+
+       $pegarOnLine = new crud_usuario;
+       $onLine = $pegarOnLine->localizaOnLine();
+       $contagem = count( $onLine);
+
+      //////////////////////////////
 
        
             $produtos = new dbProdutos;
@@ -93,7 +101,8 @@ class produtosController extends Controller
         ->with(compact('totalCli',$totalCli))
         ->with(compact('totalForn',$totalForn))
         ->with(compact('totalprod',$totalprod))
-        ->with(compact('admin',$admin));
+        ->with(compact('admin',$admin)) 
+        ->with(compact('onLine',$onLine));
        
     }
 
