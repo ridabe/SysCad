@@ -27,25 +27,25 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 4706,
+				"buffer_size": 5441,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/Http/Controllers/site/siteController.php",
 			"settings":
 			{
-				"buffer_size": 6845,
+				"buffer_size": 7737,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/Http/Controllers/admin/adminController.php",
 			"settings":
 			{
-				"buffer_size": 2415,
+				"buffer_size": 9185,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -72,27 +72,27 @@
 			"file": "app/Http/Controllers/interno/fornecedorController.php",
 			"settings":
 			{
-				"buffer_size": 7503,
+				"buffer_size": 7544,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/Http/Controllers/site/clienteController.php",
 			"settings":
 			{
-				"buffer_size": 6970,
+				"buffer_size": 7237,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/Http/Controllers/interno/produtosController.php",
 			"settings":
 			{
-				"buffer_size": 7383,
+				"buffer_size": 7646,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -257,7 +257,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -266,15 +266,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4706,
+						"buffer_size": 5441,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1282,
-								1282
+								0,
+								0
 							]
 						],
 						"settings":
@@ -282,10 +282,10 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 114.0,
+						"translation.y": 209.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -294,37 +294,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6845,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2751,
-								2751
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/Http/Controllers/admin/adminController.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2415,
+						"buffer_size": 7737,
 						"regions":
 						{
 						},
@@ -338,14 +308,44 @@
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/Controllers/admin/adminController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6745,
+								6745
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 171.0,
+						"translation.y": 4845.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -412,15 +412,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7503,
+						"buffer_size": 7544,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								694,
-								725
+								0,
+								0
 							]
 						],
 						"settings":
@@ -442,15 +442,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6970,
+						"buffer_size": 7237,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6241,
-								6273
+								0,
+								0
 							]
 						],
 						"settings":
@@ -472,15 +472,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7383,
+						"buffer_size": 7646,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6238,
-								6238
+								0,
+								0
 							]
 						],
 						"settings":

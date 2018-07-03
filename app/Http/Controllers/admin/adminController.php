@@ -20,16 +20,7 @@ class adminController extends Controller
 
  //Controlar as rotas do site
 
-   //pagar dados de usuarios on line
-
-     $pegarOnLine = new crud_usuario;
-
-     $onLine = $pegarOnLine->localizaOnLine();
-
-      $contagem = count( $onLine);
-
-      //////////////////////////////
-
+  
 
 
 
@@ -134,7 +125,17 @@ class adminController extends Controller
 
 
 
-   public function abrirInterno(){
+   public function abrirInterno()
+   {
+
+     //pagar dados de usuarios on line
+
+     $pegarOnLine = new crud_usuario;
+     $onLine = $pegarOnLine->localizaOnLine();
+     $contagem = count( $onLine);
+
+      //////////////////////////////
+
     //verifica se uma seccao esta ativa
     if(!Session::has('chave')){
         $erros_bd = ['Voce nao tem permissão!!!'];
@@ -227,6 +228,14 @@ class adminController extends Controller
 
 public function trocarSenha(request $request)
 {
+   //pagar dados de usuarios on line
+
+     $pegarOnLine = new crud_usuario;
+     $onLine = $pegarOnLine->localizaOnLine();
+     $contagem = count( $onLine);
+
+      //////////////////////////////
+
 
 
   $this->validate($request,[
