@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/**
+* Modulo DbProdutos
+*/
+Route::apiResource("api_produtos","\App\Modules\General\DbProdutos\Controllers\DbProdutosController");

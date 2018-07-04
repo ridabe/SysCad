@@ -43,10 +43,10 @@ class internoConttoller extends Controller
                  
   if ($admin == 1) {
 
-               return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('onLine',$onLine));
+               return view('admin.admin')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('onLine',$onLine))->with(compact('admin',$admin));
              } else {
               
-              return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('onLine',$onLine));
+              return view('interno.interno')->with(compact('confirmacao'))->with(compact('totalCli',$totalCli))->with(compact('totalForn',$totalForn))->with(compact('totalprod',$totalprod))->with(compact('onLine',$onLine))->with(compact('admin',$admin));
              }
                         
  

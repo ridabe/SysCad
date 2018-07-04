@@ -155,7 +155,7 @@
             //Atualiza os campos com os valores.
             document.getElementById('ruaCliente').value=(conteudo.logradouro);
             document.getElementById('bairroCliente').value=(conteudo.bairro);
-            document.getElementById('cidadeCliente').cidadevalue=(conteudo.localidade);
+            document.getElementById('cidadeCliente').value=(conteudo.localidade);
             document.getElementById('ufCliente').value=(conteudo.uf);
             
         } //end if.

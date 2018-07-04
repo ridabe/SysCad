@@ -9,7 +9,23 @@ Route::get('/site/',function(){
     Route::get('/login', 'siteController@login')->name('login');
 
 });
+
+
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 */
+/**
+* Modulo DbProdutos
+*/
+//Route::apiResource("api_produtos","\App\Modules\General\DbProdutos\Controllers\DbProdutosController");
+
+//Route::post('api_produtos', '\App\Modules\General\DbProdutos\Controllers\DbProdutosController@showProdutos')->name('api_produtos');
+Route::get('api_produtos/{ean}', '\App\Modules\General\DbProdutos\Controllers\DbProdutosController@showProdutos')->name('api_produtos');
+
+
+
 
 Route::get('/login', 'site\siteController@login')->name('login'); //Leva para tela de login
 Route::get('/usuariologin', 'site\siteController@usuarioLogin')->name('usuariologin');
